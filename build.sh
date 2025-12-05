@@ -1,14 +1,21 @@
 #!/bin/bash
+set -e
 
-# Install Flutter
-git clone https://github.com/flutter/flutter.git -b stable
+echo "Setting up Flutter..."
+
+# Clone Flutter if not exists
+if [ ! -d "flutter" ]; then
+  git clone https://github.com/flutter/flutter.git -b stable --depth 1
+fi
+
 export PATH="$PATH:`pwd`/flutter/bin"
 
-# Enable web support
-flutter config --enable-web
+# Configure Flutter
+flutter config --enable-web --no-analytics
+flutter doctor
 
-# Get dependencies
+echo "Building app..."
 flutter pub get
-
-# Build for web
 flutter build web --release
+
+echo "Build complete!"
