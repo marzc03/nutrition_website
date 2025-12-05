@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lila\'s Nutrition',
+      title: 'Nutrition',
       theme: ThemeData(
        textTheme: TextTheme(
         titleLarge: GoogleFonts.dynaPuff(),
@@ -39,10 +39,11 @@ class MyApp extends StatelessWidget {
        bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedLabelStyle:  GoogleFonts.dynaPuff(), 
         unselectedLabelStyle: GoogleFonts.dynaPuff(),
+        elevation: 0.0
        ),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 255, 102)),
       ),
-      home: const MyHomePage(title: 'Lila\'s Nutrition'),
+      home: const MyHomePage(title: 'Nutrition'),
       routes: {
         '/home': (context) => const MyHomePage(title: 'Home'),
         '/data': (context) => const MyDataPage (title: 'Data'),

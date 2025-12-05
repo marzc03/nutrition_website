@@ -17,28 +17,31 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Text('Home'),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentPageIndex,
-        onTap: (value) {
-          setState(() {
-            currentPageIndex = value;
-            Navigator.pushNamed(
-              context,
-                  value == 0
-                  ? '/home'
-                  : value == 1
-                    ? '/data'
-                    : value == 2
-                      ? '/profile'
-                      :'/home'
-            );
-          });
-        },
-        items: const [
-        BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
-        BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
-      ]
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: BottomNavigationBar(
+          currentIndex: currentPageIndex,
+          onTap: (value) {
+            setState(() {
+              currentPageIndex = value;
+              Navigator.pushNamed(
+                context,
+                    value == 0
+                    ? '/home'
+                    : value == 1
+                      ? '/data'
+                      : value == 2
+                        ? '/profile'
+                        :'/home'
+              );
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
+            BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
+          ]
+        )
       ),
     );
   }
