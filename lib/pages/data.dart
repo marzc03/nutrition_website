@@ -28,7 +28,7 @@ class _MyDataPageState extends State<MyDataPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(z
+    return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
         automaticallyImplyLeading: false,
