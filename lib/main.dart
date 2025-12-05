@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
        ),
        bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedLabelStyle:  GoogleFonts.dynaPuff(), 
-        unselectedLabelStyle: GoogleFonts.dynaPuff()
+        unselectedLabelStyle: GoogleFonts.dynaPuff(),
        ),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 255, 102)),
       ),
