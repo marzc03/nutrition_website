@@ -17,44 +17,55 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Scaffold(
-          body: Text('Home'),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: BottomNavigationBar(
-              currentIndex: currentPageIndex,
-              onTap: (value) {
-                setState(() {
-                  currentPageIndex = value;
-                  Navigator.pushNamed(
-                    context,
-                        value == 0
-                        ? '/home'
-                        : value == 1
-                          ? '/data'
-                          : value == 2
-                            ? '/profile'
-                            :'/home'
-                  );
-                });
-              },
-              items: const [
-                BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-                BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
-                BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
-              ]
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/background.png"),
+              fit: BoxFit.cover)
+            ),
+          ),
+          Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.75,
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.brown,
+                ),
+              ),
             )
           ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets\background.png"),
-            fit: BoxFit.cover)
-          ),
+        ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: BottomNavigationBar(
+          currentIndex: currentPageIndex,
+          onTap: (value) {
+            setState(() {
+              currentPageIndex = value;
+              Navigator.pushNamed(
+                context,
+                    value == 0
+                    ? '/home'
+                    : value == 1
+                      ? '/data'
+                      : value == 2
+                        ? '/profile'
+                        :'/home'
+              );
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
+            BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
+          ]
         )
-      ]
+      ),
     );
   }
 }
